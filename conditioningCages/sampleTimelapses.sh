@@ -7,9 +7,9 @@ if [ -d $Dir ];
     pushd $Dir
     for pi in *;
     do 
-        if [ ! -d ~/timelapseSamples/$pi ];
+        if [ ! -d ~/Desktop/timelapseSamples/$pi ];
             then
-            mkdir ~/timelapseSamples/$pi;
+            mkdir ~/Desktop/timelapseSamples/$pi;
         fi
         pushd $pi
         rsync -avz `ls $Dir/$pi | egrep '[0-9]{2}100' | tail -n 86` ~/Desktop/timelapseSamples/$pi

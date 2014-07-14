@@ -85,3 +85,18 @@ among other things.
 ### Managing files on the fileserver ###
 
 Using the default timelapse period of 10 seconds, each raspberry pi generates 8640 images a day during an experiment.  This can quickly become unmanageable, so I've included a couple scripts to make sifting through these large data sets a bit easier.  These require some setup that I'm not going to get into here, so they may not work on computers other than the image processing workstation
+
+
+#### Archiving Timelapses ####
+
+`archiveTimelapses.sh` and `archiveTimelapes_macVersion.sh` move timelapses from their initial destiation, `research.files.med.harvard.edu/Genetics/GrayLabPis/incomingTimelapses`, to `research.files.med.harvard.edu/Genetics/GrayLab/SamRendall/timelapseArchive/`.  Timelapses are grouped based on unique timestamps, and saved in directories named accordingly.
+
+#### Sampling Timelapses ####
+
+**TODO**
+
+
+
+/vsiResizing
+------------
+
