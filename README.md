@@ -50,4 +50,3 @@ Otherwise, run it like any other executable bash script:
 After a few seconds, this should produce output similar to this:
 
 `graylabpi2.med.harvard.edu graylabpi4.med.harvard.edu graylabpi5.med.harvard.edu graylabpi6.med.harvard.edu graylabpi7.med.harvard.edu`
-
