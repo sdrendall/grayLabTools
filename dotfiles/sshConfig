@@ -1,0 +1,52 @@
+Host 10.117.33.*
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+
+Host pi*
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    
+Host orchestra
+    Hostname orchestra.med.harvard.edu
+
+Host beatrice
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    HostName beatrice.med.harvard.edu
+    User pi
+
+Host ccws
+    HostName ccws.med.harvard.edu
+    User ccws
+    
+Host pi1
+    HostName graylabpi1.med.harvard.edu
+    User pi
+
+Host pi2 
+	HostName graylabpi2.med.harvard.edu 
+	User pi
+
+Host pi3 
+	HostName graylabpi3.med.harvard.edu 
+	User pi
+
+Host pi4 
+	HostName graylabpi4.med.harvard.edu 
+	User pi
+
+Host pi5 
+	HostName graylabpi5.med.harvard.edu 
+	User pi
+
+Host pi6 
+	HostName graylabpi6.med.harvard.edu 
+	User pi
+
+Host pi7
+	HostName graylabpi7.med.harvard.edu 
+	User pi
+
+Host pi8 
+	HostName graylabpi8.med.harvard.edu 
+	User pi

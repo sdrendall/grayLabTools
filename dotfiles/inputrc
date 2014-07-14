@@ -1,0 +1,16 @@
+## arrow up - search forward in history
+"\e[A":history-search-backward
+## arrow down - search backwards in history
+"\e[B":history-search-forward
+
+## word skipping w/ ctrl
+"\e[1;5C":forward-word
+"\e[1;5D":backward-word
+
+## transpose commands
+"\e[1;3C":transpose-chars	#transpose characters forward - alt+fwdArrow
+"\e[1;4C":transpose-words	#transpose word forward - shift + alt + fwdArrow
+
+## delete words w/ ctrl
+"\e[3;5~":shell-kill-word	#delete next word, ctrl + del
+##"\e[1;":shell-backward-kill-word	#delete previous word, ctrl + del
