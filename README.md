@@ -5,6 +5,13 @@ This repository contains a compilation of the scripts and programs I've created 
 
 Installing the tools
 --------------------
+I've included an install script that will install dependencies and create symbolic links to make using these tools easier.  If you are on a mac, you must first install macports, which can be downloaded [here](http://www.macports.org/install.php).  To install the tools, navigate to grayLabTools:
+
+`cd path/to/grayLabTools`
+
+Then run the install script:
+
+`./install`
 
 
 /conditioningCage
