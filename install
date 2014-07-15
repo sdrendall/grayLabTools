@@ -1,0 +1,45 @@
+#! /bin/bash
+
+
+installLinuxDepenencies() {
+    local dependencies=( nmap rsync cifs-utils )
+    apt-get install ${dependencies[@]}
+}
+
+installMacDependencies() {
+    local dependencies=( nmap rsync )
+    port install ${dependencies[@]}
+}
+
+installDependencies() {
+    local unamestr=`uname`
+    if [[ "$unamestr" == 'Linux']]
+        then
+        installLinuxDepenencies
+    elif [[ "$unamestr" == 'Darwin']]
+        then
+        installMacDependencies
+    fi
+}
+
+determineRootDir() {
+    local src="${BASH_SOURCE[0]}"
+    while [ -h "$src" ]; do # resolve $src until the file is no longer a symlink
+      GLTDIR="$( cd -P "$( dirname "$src" )" && pwd )"
+      src="$(readlink "$src")"
+      [[ $src != /* ]] && src="$GLTDIR/$src" # if $src was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+    done
+    GLTDIR="$( cd -P "$( dirname "$src" )" && pwd )"
+}
+
+createSymbolicLinks() {
+    determineRootDir
+    ln -s $GLTDIR/conditioningCage/getConnectedCages.sh /usr/bash/getConnectedCages
+    ln -s $GLTDIR/conditioningCage/runOnConnectedCages.sh /usr/bash/runOnConnectedCages
+}
+
+main() {
+    sudo su
+    installDependencies
+    createSymbolicLinks
+}
