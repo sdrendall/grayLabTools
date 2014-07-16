@@ -141,4 +141,4 @@ I've included quite a few comments to explain what each part of the function is 
 
 #### Using the script on Orchestra ####
 
-Orchestra can be used to run this script in parellel, on many images, to produce results for a large data set very quickly.   
+Orchestra can be used to run this script on many images in parallel to produce results for a large data set very quickly.  The find command is very useful for this.  More to come....
