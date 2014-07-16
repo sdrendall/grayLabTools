@@ -35,7 +35,7 @@ on Ubuntu 14.04
 
 
 #### Connecting to a pi ####
-Once you have access, the pis can be accessed using ssh.  The domain names for the pis follow the form `graylabpiX.med.havard.edu`. Where 'X' is currently 0 - 9.  The username for each raspberry pi is the factory default: 'pi'.
+Once you have access, the pis can be accessed using ssh.  The domain names for the pis follow the form `graylabpiX.med.havard.edu`. Where 'X' is currently 1 - 8.  The username for each raspberry pi is the factory default: 'pi'.
 
 To log in to graylabpi5, type the following command:
 
