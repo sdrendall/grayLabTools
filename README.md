@@ -1,6 +1,6 @@
 grayLabTools
 ============
-This repository contains a compilation of the scripts and programs I've created and found useful for the various things I've worked on while at the lab.  This README describes the installation and usage of the files contained, and provides instructions on where to find the repositories containing the rest of the software I've created during my coops, how to download them.
+This repository contains a compilation of the scripts and programs I've created and found useful for the various things I've worked on while at the lab.  This README describes the installation and usage of the files contained.
 
 
 Downloading the Tools
