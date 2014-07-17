@@ -5,7 +5,7 @@ This repository contains a compilation of the scripts and programs I've created 
 
 Downloading the Tools
 ---------------------
-I recommend using git to download and update this repository.  To install git, follow the instructions [here]().  Once you have installed git, open a terminal, and navigate to the directory you would like to download this toolbox to then use the `git clone` command to download the tools.  I keep my code repositories in a directory called 'code' in my home folder, so for me, this entire step would look like this:
+I recommend using git to download and update this repository.  To install git, follow the instructions [here](http://git-scm.com/).  Once you have installed git, open a terminal, and navigate to the directory you would like to download this toolbox to then use the `git clone` command to download the tools.  I keep my code repositories in a directory called 'code' in my home folder, so for me, this entire step would look like this:
 
 ```
 mkdir ~/code
