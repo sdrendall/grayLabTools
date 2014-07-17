@@ -73,7 +73,9 @@ Otherwise, run it like any other executable bash script:
 
 After a few seconds, this should produce output similar to this:
 
-`graylabpi2.med.harvard.edu graylabpi4.med.harvard.edu graylabpi5.med.harvard.edu graylabpi6.med.harvard.edu graylabpi7.med.harvard.edu`
+```
+graylabpi2.med.harvard.edu graylabpi4.med.harvard.edu graylabpi5.med.harvard.edu graylabpi6.med.harvard.edu graylabpi7.med.harvard.edu
+```
 
 
 #### Running commands on the pis ####
@@ -85,7 +87,9 @@ Will display a lovely greeting from the host, containing its hostname.
 
 The `getConnectedCages` command is useful for executing commands on each connected raspberry pi.  For example, to recieve the above greeting from each connected pi, you can use the following:
 
-```for connectedCage in `getConnectedCages`; do ssh pi@$connectedCage 'echo "Hello from $HOSTNAME!"'; done```
+```
+for connectedCage in `getConnectedCages`; do ssh pi@$connectedCage 'echo "Hello from $HOSTNAME!"'; done
+```
 
 Such friendly cages!
 
@@ -105,7 +109,7 @@ or for rebooting the pis:
 
 I often use this technique to check the status of the timelapses running on the pis, to make sure everything is running correctly.  To do this, run the following command:
 
-`runOnConnectedCages 'echo "$HOSTNAME:"; ps -A | grep raspi'
+`runOnConnectedCages 'echo "$HOSTNAME:"; ps -A | grep raspi'`
 
 For each cage with an active timelapse, you will see a line with the cage's name, followed by a line describing the raspistill process responsible for the timelapse.  It should looks similar to this:
 
