@@ -148,9 +148,9 @@ Before using this script, a few minor configuration changes must me made to matl
 
 Once matlab is installed, the first thing to do is add the image manipulation scripts to the matlab path.  This must be done, or matlab will not recognize the functions defined in the image manipulation scripts as valid commands.  There are two ways to do this:
 
-1.) Open matlab.  On toolbar at the top of the console, there is a 'Set Path' option in the 'Enviroment' section.  Click on this.  Choose the 'Add With Subfolders' option, then find where you downloaded the grayLabTools folder and click 'Open'.  Click the 'Save' button at the bottom of the 'Set Path' window, then click close.
+1. Open matlab.  On toolbar at the top of the console, there is a 'Set Path' option in the 'Enviroment' section.  Click on this.  Choose the 'Add With Subfolders' option, then find where you downloaded the grayLabTools folder and click 'Open'.  Click the 'Save' button at the bottom of the 'Set Path' window, then click close.
 
-2.) Open matlab.  Type the following commands, substituting my example path with the path to the grayLabToolbox folder on your computer:
+2. Open matlab.  Type the following commands, substituting my example path with the path to the grayLabToolbox folder on your computer:
 
 ```
 addpath(genpath('path/to/grayLabToolbox'));
