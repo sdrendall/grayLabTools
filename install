@@ -13,10 +13,10 @@ installMacDependencies() {
 
 installDependencies() {
     local unamestr=`uname`
-    if [[ "$unamestr" == 'Linux']]
+    if [[ "$unamestr" == 'Linux' ]]
         then
         installLinuxDepenencies
-    elif [[ "$unamestr" == 'Darwin']]
+    elif [[ "$unamestr" == 'Darwin' ]]
         then
         installMacDependencies
     fi

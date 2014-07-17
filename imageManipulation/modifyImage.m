@@ -64,7 +64,7 @@ function im = normalizeToUint8(im)
 function A = normalizeValues(A)
     % Normalize the values of an array such that the lowest value is 0
     %  and the highest is 1.  Returns a double percision array
-    A = double(A)
+    A = double(A);
     A = A - min(A);
     A = A ./ max(A);
 
