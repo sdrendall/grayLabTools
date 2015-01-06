@@ -1,20 +1,24 @@
 function modifyImage(inputPath, outputPath)
-    %% downsizeWithoutNormalizing(inputPath, outputPath)
+    %% modifyImage(inputPath, outputPath)
     % 
     % Downsizes a vsi image and converts it from 16 bit to 8 bit.
     % Does not alter the distribution of pixel intensities
+    %
+    % If an output path name is not specified, the output image will be
+    % saved in the same directory as the input image
 
     % Default outputPath is in the same directory as the inputPath
     if ~exist('outputPath', 'var')
         [dirPath, filename] = fileparts(inputPath);
         % Strings in matlab are vectors (arrays/lists) of chars, and can be concatenated like so:
         %  ['str1', 'str2'] == 'str1str2'
-        outputPath = fullfile(dirPath, [filename, '_modified.png']);  
+        outputPath = fullfile(dirPath, [filename, '_modified_R.png']);  
     end 
 
     im = loadImage(inputPath);
 
     % The second argument to imresize can be a single value from 0 to 1.
+    % or it can be a vector specifying the dimensions to resize the image to
     %  In this case, NaN tells imresize to scale to the size of the specified dimension
     %  matlab arrays are indexed by [row number, column number]
     im = imresize(im, [NaN, 2048]);
@@ -23,10 +27,12 @@ function modifyImage(inputPath, outputPath)
     
     im = uint16ToUint8(im);
 
+    im = cropImage(im);
+
     imwrite(im, outputPath);
 
 
-function loadImage(inputPath)
+function im = loadImage(imagePath)
     % Loads an image using the bioformats toolbox if it is a vsi,
     %  or with imread if it isn't
     [root, name, suffix] = fileparts(imagePath);
@@ -36,7 +42,7 @@ function loadImage(inputPath)
         im = imread(imagePath);
     end
 
-function loadVsi(vsiPath)
+function im = loadVsi(vsiPath)
     % Loads a vsi image
     % Create a vsi reader    
     r = bfGetReader(vsiPath);
@@ -47,8 +53,9 @@ function loadVsi(vsiPath)
     im = zeros([nr, nc, 3]);
 
     % load planes from vsi into image
-    im(:,:,2) = bfGetPlane(r, 2); % Hoechst is plane 2 
-    im(:,:,3) = bfGetPlane(r, 1); % FITC is plane 1
+    % Vsi color chanels go in the order red, green, blue
+    im(:,:,2) = bfGetPlane(r, 2); % Hoechst is plane 2
+    %im(:,:,3) = bfGetPlane(r, 1); % FITC is plane 1
 
 function im = uint16ToUint8(im)
     % Convert an image from 8-bit to 16-bit without changing the distribution
@@ -57,7 +64,7 @@ function im = uint16ToUint8(im)
 
 
 function im = normalizeToUint8(im)
-    % NORMALIZES and Converts an image to 8-bit
+    % NORMALIZES and Converts an image to unsigned 8-bit integer format
     im = normalizeValues(im);
     im = uint8(im*255);
             
@@ -78,6 +85,6 @@ function im = flipflop(im)
 function im = cropImage(im)
     % This function crops out the last (right) three fifths of an image, something that Jin commonly asks for
     [nr, nc, np] = size(im); % Get the number of rows, columns and planes in the image
-    im = im(round(:, nc*2/5):end, :);  % repopulate im with the values from each row, and each plane, from the column
+    im = im(:, round(nc*2/5):end, :);  % RIGHT SIZE - repopulate im with the values from each row, and each plane, from the column
                                         % 2/5 through the number of columns through the last column
-    % im = im(:, 1:round(nc*3/5), :) would crop the left 3/5ths of the image
+    % im = im(:, 1:round(nc*3/5), :) % - LEFT SIDE would crop the left 3/5ths of the image
