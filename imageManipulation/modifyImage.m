@@ -7,12 +7,16 @@ function modifyImage(inputPath, outputPath)
     % If an output path name is not specified, the output image will be
     % saved in the same directory as the input image
 
+    if ~exist('inputPath', 'var')
+        inputPath = uigetfile()
+    end
+
     % Default outputPath is in the same directory as the inputPath
     if ~exist('outputPath', 'var')
         [dirPath, filename] = fileparts(inputPath);
         % Strings in matlab are vectors (arrays/lists) of chars, and can be concatenated like so:
         %  ['str1', 'str2'] == 'str1str2'
-        outputPath = fullfile(dirPath, [filename, '_modified_R.png']);  
+        outputPath = fullfile(dirPath, [filename, '_modified.png']);  
     end 
 
     im = loadImage(inputPath);
@@ -23,11 +27,9 @@ function modifyImage(inputPath, outputPath)
     %  matlab arrays are indexed by [row number, column number]
     im = imresize(im, [NaN, 2048]);
     % Vsis need to be rotated 180 degrees
-    im = flipflop(im);
+    im = im';
     
-    im = uint16ToUint8(im);
-
-    im = cropImage(im);
+    im = normalizeToUint8(im);
 
     imwrite(im, outputPath);
 

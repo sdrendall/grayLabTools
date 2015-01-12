@@ -1,7 +1,9 @@
 clc
-disp('Just Wait Dr. Jin H. Cho, PhD, MSX, 007 Mmk?')
+disp('Please Wait')
 
-imageStructs = searchForImages('~/Desktop/Recall', '.vsi');
+startPath = uigetdir();
+
+imageStructs = searchForImages(startPath, '.vsi');
 
 numImages = length(imageStructs);
 
