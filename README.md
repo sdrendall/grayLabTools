@@ -91,13 +91,9 @@ The `getConnectedCages` command is useful for executing commands on each connect
 for connectedCage in `getConnectedCages`; do ssh pi@$connectedCage 'echo "Hello from $HOSTNAME!"'; done
 ```
 
-Such friendly cages!
-
 Writing this whole for loop can get tedious, so I wrote a script -- runOnConnectedCages.sh -- to run commands on each pi, just like we did above.  The following should produce identical results to the previous example:
 
 `runOnConnectedCages 'echo "Hello from $HOSTNAME!"'`
-
-Magnificent!
 
 This can be useful for updating the code on each pi:
 
