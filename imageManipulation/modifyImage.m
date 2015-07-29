@@ -8,7 +8,8 @@ function modifyImage(inputPath, outputPath)
     % saved in the same directory as the input image
 
     if ~exist('inputPath', 'var')
-        inputPath = uigetfile()
+        [inputPath, inputDir] = uigetfile();
+        inputPath = fullfile(inputDir, inputPath)
     end
 
     % Default outputPath is in the same directory as the inputPath
@@ -27,7 +28,7 @@ function modifyImage(inputPath, outputPath)
     %  matlab arrays are indexed by [row number, column number]
     im = imresize(im, [NaN, 2048]);
     % Vsis need to be rotated 180 degrees
-    im = im';
+    im = rot90(im, 2);
     
     im = normalizeToUint8(im);
 
@@ -74,8 +75,8 @@ function A = normalizeValues(A)
     % Normalize the values of an array such that the lowest value is 0
     %  and the highest is 1.  Returns a double percision array
     A = double(A);
-    A = A - min(A);
-    A = A ./ max(A);
+    A = A - min(A(:));
+    A = A ./ max(A(:));
 
 function im = flipflop(im)
     % Flips an image along both axis
