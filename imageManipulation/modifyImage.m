@@ -88,6 +88,6 @@ function im = flipflop(im)
 function im = cropImage(im)
     % This function crops out the last (right) three fifths of an image, something that Jin commonly asks for
     [nr, nc, np] = size(im); % Get the number of rows, columns and planes in the image
-    im = im(:, round(nc*2/5):end, :);  % RIGHT SIZE - repopulate im with the values from each row, and each plane, from the column
+    %im = im(:, round(nc*2/5):end, :);  % RIGHT SIZE - repopulate im with the values from each row, and each plane, from the column
                                         % 2/5 through the number of columns through the last column
-    % im = im(:, 1:round(nc*3/5), :) % - LEFT SIDE would crop the left 3/5ths of the image
+    im = im(:, 1:round(nc*3/5), :) % - LEFT SIDE would crop the left 3/5ths of the image
